@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_hooks_series/hooks_demo_1/start_1.dart';
 import 'package:flutter_hooks_series/hooks_demo_2/start_2.dart';
 import 'package:flutter_hooks_series/hooks_demo_3/start_3.dart';
+import 'package:flutter_hooks_series/hooks_demo_4/start_4.dart';
+import 'package:flutter_hooks_series/hooks_demo_5/start_5.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,7 +35,7 @@ class MyHomePage extends StatelessWidget {
         title: const Text('Home Page'),
         centerTitle: true,
       ),
-      body: ListView.builder(
+      body: ListView.separated(
         itemCount: _demos.length,
         itemBuilder: (context, index) {
           final Widget page = _demos.keys.toList()[index];
@@ -51,15 +52,23 @@ class MyHomePage extends StatelessWidget {
             },
           );
         },
+        separatorBuilder: (context, index) => const Divider(
+          thickness: 5,
+        ),
       ),
     );
   }
 }
 
 Map<Widget, String> _demos = {
-  const HooksDemo1(): "Demo 1: useStream",
+  const HooksDemo1():
+      "Demo 1: useStream, consuming a stream without the need for a stream builder",
   const HooksDemo2():
       "Demo 2: useState and useEffect to update Text Widget using a text field without using a statefull widget ",
   const HooksDemo3():
       "Demo 3: loading image into memory asyncronously without making use of a Future.builder",
+  const HooksDemo4():
+      "Demo 4: useListenable a hook tied to a listenable that triggers the rebuild of the widget whenver the value of the listenable changes",
+  const HooksDemo5():
+      "Demo 5: using useAnimationController  and useScrollontroller",
 };
