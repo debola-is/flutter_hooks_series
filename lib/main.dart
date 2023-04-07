@@ -5,6 +5,7 @@ import 'package:flutter_hooks_series/hooks_demo_2/start_2.dart';
 import 'package:flutter_hooks_series/hooks_demo_3/start_3.dart';
 import 'package:flutter_hooks_series/hooks_demo_4/start_4.dart';
 import 'package:flutter_hooks_series/hooks_demo_5/start_5.dart';
+import 'package:flutter_hooks_series/hooks_demo_6/start_6.dart';
 
 void main() {
   runApp(const MyApp());
@@ -71,4 +72,5 @@ Map<Widget, String> _demos = {
       "Demo 4: useListenable a hook tied to a listenable that triggers the rebuild of the widget whenver the value of the listenable changes",
   const HooksDemo5():
       "Demo 5: using useAnimationController  and useScrollontroller",
+  const HooksDemo6(): "useStreamController"
 };
